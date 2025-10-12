@@ -1,3 +1,8 @@
+from peon import Peon
+from torre import Torre
+from caballo import Caballo
+
+
 class Tablero():
     def __init__(self):
         self.fichas = {}
@@ -9,7 +14,10 @@ class Tablero():
         Args:
             ficha: Objeto de clase Rey, Reina, Torre, Alfil, Caballo o Peon.
         """
-        pass # Implementar código desde esta línea
+        letra = ficha.posicion[0]
+        numero = ficha.posicion[1]
+        posicion = f'{letra}{numero}'
+        self.fichas[posicion] = ficha
     
     def set_mover(self, desde, hasta):
         """Mueve la ficha desde una posición a otra.
