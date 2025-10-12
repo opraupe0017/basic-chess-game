@@ -17,29 +17,32 @@ class Torre:
         
         else:
             print("❌ Movimiento inválido para la torre.")
+    def __set__(self):
+        return "♖" if self.es_blanco else "♜"
 
-# ----------------------------
-# PROGRAMA PRINCIPAL
-# ----------------------------
-torre = Torre(('d', 4))
-print(f"Posición inicial de la torre: {torre.posicion}")
+if __name__ == "__main__":
+    # ----------------------------
+    # PROGRAMA PRINCIPAL
+    # ----------------------------
+    torre = Torre(('d', 4))
+    print(f"Posición inicial de la torre: {torre.posicion}")
 
-while True:
-    letra = input("Ingrese la letra (a-h) o 'salir' para terminar: ").lower()
-    if letra == "salir":
-        print("Juego terminado.")
-        break
+    while True:
+        letra = input("Ingrese la letra (a-h) o 'salir' para terminar: ").lower()
+        if letra == "salir":
+            print("Juego terminado.")
+            break
 
-    try:
-        numero = int(input("Ingrese el número (1-8): "))
-    except ValueError:
-        print("⚠️ Número inválido. Intenta de nuevo.")
-        continue
+        try:
+            numero = int(input("Ingrese el número (1-8): "))
+        except ValueError:
+            print("⚠️ Número inválido. Intenta de nuevo.")
+            continue
 
-    # Validar rango del tablero
-    if letra not in 'abcdefgh' or not (1 <= numero <= 8):
-        print("⚠️ Coordenada fuera del tablero. Intenta de nuevo.")
-        continue
+        # Validar rango del tablero
+        if letra not in 'abcdefgh' or not (1 <= numero <= 8):
+            print("⚠️ Coordenada fuera del tablero. Intenta de nuevo.")
+            continue
 
-    # Mover la torre
-    torre.set_posicion((letra, numero))
+        # Mover la torre
+        torre.set_posicion((letra, numero))
