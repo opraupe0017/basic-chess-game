@@ -24,7 +24,36 @@ class Tablero():
             Exception: Error de posición desde o hasta fuera del tablero.
             Exception: Error de tratar de eliminar una ficha del mismo bando.
         """
-        pass # Implementar código desde esta línea
+        pieza = self.fichas.get(desde)
+        destino = self.fichas.get(hasta)
+    
+        if not pieza:
+            raise Exception("No hay ficha en la posición inicial.")
+
+        # Verificar límites del tablero
+        letra_desde = desde[0]
+        numero_desde = int(desde[1])
+        
+        letra_hasta = hasta [0]
+        numero_hasta = int(hasta [1])
+        
+        con_1 = "a" <= letra_desde <= "h" and 1 <= numero_desde <= 8
+        con_2 = "a" <= letra_hasta <= "h" and 1 <= numero_hasta <= 8
+        if not (con_1 and con_2):
+            raise Exception("Posición fuera del tablero.")
+
+       
+        # Si hay una pieza en el destino
+        if destino:
+            if destino.es_blanco == pieza.es_blanco:
+                raise Exception("No puedes capturar una pieza del mismo bando.")
+            else:
+                # Eliminar pieza rival
+                self.fichas[hasta].esta_activo = False
+                
+        # Verificar movimiento válido según la pieza
+        self.fichas[desde].set_posicion([letra_hasta, numero_hasta])
+        self.movimientos.append(f"{desde}->{hasta}")
     
     def __str__(self):
         """Muestra el tablero de ajedrez con las fichas en las posiciones actuales
