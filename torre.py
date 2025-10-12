@@ -17,7 +17,8 @@ class Torre:
         
         else:
             raise Exception("❌ Movimiento inválido para la torre.")
-    def __set__(self):
+        
+    def __str__(self):
         return "♖" if self.es_blanco else "♜"
 
 if __name__ == "__main__":
