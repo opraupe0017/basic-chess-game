@@ -89,15 +89,17 @@ class Tablero():
         return tablero
 
 if __name__ == '__main__':
-    from caballo import Caballo
-
-
     tablero = Tablero()
     fichas = [
+        Peon(posicion=['a', 2], es_blanco=True),
         Caballo(posicion=['b', 1], es_blanco=True),
         Caballo(posicion=['g', 1], es_blanco=True),
+        Torre(posicion=['h', 1], es_blanco=True),
+
+        Peon(posicion=['a', 7], es_blanco=False),
         Caballo(posicion=['a', 4], es_blanco=False),
-        Caballo(posicion=['g', 8], es_blanco=False)
+        Caballo(posicion=['g', 8], es_blanco=False),
+        Torre(posicion=['h', 8], es_blanco=False),
     ]
     for ficha in fichas:
         tablero.set_ficha(ficha)
