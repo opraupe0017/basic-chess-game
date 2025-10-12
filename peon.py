@@ -5,7 +5,7 @@ class Peon():
         self.esta_activo = True
 
     def set_posicion(self, posicion_nueva):
-        letra = posicion_nueva[0]
+        letra = ord(posicion_nueva[0])
         numero = posicion_nueva[1]
 
         letra_actual = ord(self.posicion[0])
