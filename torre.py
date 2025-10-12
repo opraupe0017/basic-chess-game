@@ -16,7 +16,7 @@ class Torre:
             self.posicion = posicion_nueva
         
         else:
-            print("❌ Movimiento inválido para la torre.")
+            raise Exception("❌ Movimiento inválido para la torre.")
     def __set__(self):
         return "♖" if self.es_blanco else "♜"
 
