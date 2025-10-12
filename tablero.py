@@ -61,6 +61,8 @@ class Tablero():
                 
         # Verificar movimiento válido según la pieza
         self.fichas[desde].set_posicion([letra_hasta, numero_hasta])
+        self.fichas[hasta] = self.fichas[desde]
+        del self.ficha[desde]
         self.movimientos.append(f"{desde}->{hasta}")
     
     def __str__(self):
