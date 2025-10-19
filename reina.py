@@ -19,3 +19,6 @@ class reina():
             self.posicion = posicion_nueva
         else:
             print("Movimiento inválido para la reina.")
+
+    def __str__(self):
+        return "♕" if self.es_blanco else "♛"
