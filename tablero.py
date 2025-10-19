@@ -1,6 +1,7 @@
 from peon import Peon
 from torre import Torre
 from caballo import Caballo
+from alfil import Alfil 
 
 
 class Tablero():
@@ -102,6 +103,7 @@ if __name__ == '__main__':
         Caballo(posicion=['a', 4], es_blanco=False),
         Caballo(posicion=['g', 8], es_blanco=False),
         Torre(posicion=['h', 8], es_blanco=False),
+        Alfil(posicion=['c', 1], es_blanco=False),
     ]
     for ficha in fichas:
         tablero.set_ficha(ficha)
