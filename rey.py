@@ -57,6 +57,9 @@ class Rey:
             print(f"Rey movido a {nueva_columna}{nueva_fila}")
         else:
             print("Movimiento inválido, fuera del tablero.")
+    
+    def __str__(self):
+        return "♔" if self.es_blanco else "♚"
 
 
 if __name__ == "__main__":
@@ -64,4 +67,3 @@ if __name__ == "__main__":
     rey.mover("derecha")
     rey.mover("adelante izquierda")
     
-
