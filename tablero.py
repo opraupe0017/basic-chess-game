@@ -1,6 +1,7 @@
 from peon import Peon
 from torre import Torre
 from caballo import Caballo
+from rey import Rey
 from reina import reina
 
 
@@ -99,13 +100,16 @@ if __name__ == '__main__':
         Caballo(posicion=['b', 1], es_blanco=True),
         Caballo(posicion=['g', 1], es_blanco=True),
         Torre(posicion=['h', 1], es_blanco=True),
+        Rey(posicion=['e', 1], es_blanco=True),
         reina(posicion=['d', 1], es_blanco=True),
 
         Peon(posicion=['a', 7], es_blanco=False),
         Caballo(posicion=['a', 4], es_blanco=False),
         Caballo(posicion=['g', 8], es_blanco=False),
         Torre(posicion=['h', 8], es_blanco=False),
+        Rey(posicion=['e', 8], es_blancoo=False),
         reina(posicion=['d', 8], es_blanco=False),
+    ]
 
     for ficha in fichas:
         tablero.set_ficha(ficha)
