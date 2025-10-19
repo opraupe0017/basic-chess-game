@@ -128,6 +128,13 @@ if __name__ == '__main__':
     print(tablero)
     tablero.set_mover('g8', 'h6')
     print(tablero)
+    tablero.set_mover('d1', 'd5')
+    print(tablero)
+    tablero.set_mover('c1', 'a3')
+    print(tablero)
+    tablero.set_mover('e8', 'f7')
+    print(tablero)
+
     print(tablero.movimientos)
     # Un caballo blanco tratando de eliminar otro caballo blanco
     tablero.set_mover('e2', 'c3')
