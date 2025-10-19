@@ -11,7 +11,7 @@ class reina():
         letra_actual = ord(self.posicion[0])
         numero_actual = self.posicion[1]
 
-        if(letra_actual == letra and numero_actual != numero:) or \
+        if (letra_actual == letra and numero_actual != numero) or \
                 (letra_actual != letra and numero_actual == numero):
             self.posicion = posicion_nueva
         elif abs(letra - letra_actual) == abs(numero - numero_actual) \
@@ -19,5 +19,3 @@ class reina():
             self.posicion = posicion_nueva
         else:
             print("Movimiento inválido para la reina.")
-
-        
