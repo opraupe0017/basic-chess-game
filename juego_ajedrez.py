@@ -1,6 +1,10 @@
+from tablero import Tablero
+
 class BasicChessGame():
     def __init__(self):
-        pass # Implementar código desde esta línea
+        self.tablero = Tablero()
+        self.rey_blanco = None
+        self.rey_negro = None
     
     def set_fichas(self):
         """Cargar las fichas en el tablero.
