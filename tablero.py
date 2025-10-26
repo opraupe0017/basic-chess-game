@@ -58,15 +58,22 @@ class Tablero():
         if destino:
             if destino.es_blanco == pieza.es_blanco:
                 raise Exception("No puedes capturar una pieza del mismo bando.")
-            else:
+            elif not isinstance(pieza, Peon):
+                # Eliminar pieza rival
+                self.fichas[hasta].esta_activo = False
+            elif isinstance(pieza, Peon) and letra_desde != letra_hasta and destino.es_blanco != pieza.es_blanco:  # Si la pieza es un peón
                 # Eliminar pieza rival
                 self.fichas[hasta].esta_activo = False
                 
         # Verificar movimiento válido según la pieza
-        self.fichas[desde].set_posicion([letra_hasta, numero_hasta])
-        self.fichas[hasta] = self.fichas[desde]
-        del self.fichas[desde]
-        self.movimientos.append(f"{desde}->{hasta}")
+        if not isinstance(pieza, Peon) or (isinstance(pieza, Peon) and letra_desde != letra_hasta and destino.es_blanco != pieza.es_blanco) or (isinstance(pieza, Peon) and letra_desde == letra_hasta):
+            self.fichas[desde].set_posicion([letra_hasta, numero_hasta])
+            self.fichas[hasta] = self.fichas[desde]
+            del self.fichas[desde]
+            self.movimientos.append(f"{desde}->{hasta}")
+        else:
+            raise Exception("No se puede mover así el Peon")
+
     
     def __str__(self):
         """Muestra el tablero de ajedrez con las fichas en las posiciones actuales
@@ -104,7 +111,7 @@ if __name__ == '__main__':
         reina(posicion=['d', 1], es_blanco=True),
 
         Peon(posicion=['a', 7], es_blanco=False),
-        Caballo(posicion=['a', 4], es_blanco=False),
+        Caballo(posicion=['b', 3], es_blanco=False),
         Caballo(posicion=['g', 8], es_blanco=False),
         Torre(posicion=['h', 8], es_blanco=False),
         Rey(posicion=['e', 8], es_blanco=False),
@@ -116,26 +123,26 @@ if __name__ == '__main__':
         tablero.set_ficha(ficha)
     print(tablero)
 
-    tablero.set_mover('g1', 'e2')
-    print(tablero)
-    tablero.set_mover('a4', 'c3')
-    print(tablero)
-    tablero.set_mover('b1', 'c3')
-    print(tablero)
     tablero.set_mover('a2', 'a3')
     print(tablero)
-    tablero.set_mover('h8', 'h1')
-    print(tablero)
-    tablero.set_mover('g8', 'h6')
-    print(tablero)
-    tablero.set_mover('d1', 'd5')
-    print(tablero)
-    tablero.set_mover('c1', 'a3')
-    print(tablero)
-    tablero.set_mover('e8', 'f7')
-    print(tablero)
+    # tablero.set_mover('a4', 'c3')
+    # print(tablero)
+    # tablero.set_mover('b1', 'c3')
+    # print(tablero)
+    # tablero.set_mover('a2', 'a3')
+    # print(tablero)
+    # tablero.set_mover('h8', 'h1')
+    # print(tablero)
+    # tablero.set_mover('g8', 'h6')
+    # print(tablero)
+    # tablero.set_mover('d1', 'd5')
+    # print(tablero)
+    # tablero.set_mover('c1', 'a3')
+    # print(tablero)
+    # tablero.set_mover('e8', 'f7')
+    # print(tablero)
 
-    print(tablero.movimientos)
-    # Un caballo blanco tratando de eliminar otro caballo blanco
-    tablero.set_mover('e2', 'c3')
-    print(tablero)
+    # print(tablero.movimientos)
+    # # Un caballo blanco tratando de eliminar otro caballo blanco
+    # tablero.set_mover('e2', 'c3')
+    # print(tablero)
