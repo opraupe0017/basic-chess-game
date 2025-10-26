@@ -52,8 +52,8 @@ class BasicChessGame():
         self.tablero.set_ficha(Caballo(posicion=['g', 8], es_blanco=False))
 
         #Fichas de las Torres Negras 
-        self.tablero.set_fichas(Torre(posicion=['h', 8], es_blanco=False))
-        self.tablero.set_fichas(Torre(posicion=['a', 8], es_blanco=False))
+        self.tablero.set_ficha(Torre(posicion=['h', 8], es_blanco=False))
+        self.tablero.set_ficha(Torre(posicion=['a', 8], es_blanco=False))
 
         #Fichas de Alfiles Negros
         self.tablero.set_ficha(Alfil(posicion=['c', 8], es_blanco=False))
@@ -70,9 +70,11 @@ class BasicChessGame():
     def jugar(self):
         """Activador del juego de ajedrez básico.
         """
+        self.set_fichas()
         turno_blancos = True
         while self.rey_blanco.esta_activo ==  True and self.rey_negro.esta_activo == True:
-            se_rinde = input("¿Deseas rendirte?")
+            print(self.tablero)
+            se_rinde = input("¿Deseas rendirte? ")
             if se_rinde == "si" and turno_blancos == True:
                 self.rey_blanco.esta_activo = False
             elif se_rinde == "si" and turno_blancos == False:
@@ -85,7 +87,7 @@ class BasicChessGame():
                 if cond_1 and cond_2:
                     try:
                         self.tablero.set_mover(desde, hasta)
-                        turno_blancos = False
+                        turno_blancos = not turno_blancos
                     except:
                         print(f"Posición {hasta} fuera del tablero.")
         
