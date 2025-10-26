@@ -11,9 +11,10 @@ class Peon():
         letra_actual = ord(self.posicion[0])
         numero_actual = self.posicion[1]
 
-        if (numero_actual + 1) == numero and letra_actual == letra:
+        num = 1 if self.es_blanco else -1
+        if (numero_actual + num) == numero and letra_actual == letra:
             self.posicion = posicion_nueva
-        elif (numero_actual + 1) == numero and abs(letra - letra_actual) == 1:
+        elif (numero_actual + num) == numero and abs(letra - letra_actual) == 1:
             self.posicion = posicion_nueva
         else:
             raise Exception("ERROR, posicion invalida. ")
