@@ -66,7 +66,7 @@ class Tablero():
                 self.fichas[hasta].esta_activo = False
                 
         # Verificar movimiento válido según la pieza
-        if not isinstance(pieza, Peon) or (isinstance(pieza, Peon) and letra_desde != letra_hasta and destino.es_blanco != pieza.es_blanco) or (isinstance(pieza, Peon) and letra_desde == letra_hasta):
+        if not isinstance(pieza, Peon) or (isinstance(pieza, Peon) and letra_desde != letra_hasta and destino.es_blanco != pieza.es_blanco) or (isinstance(pieza, Peon) and letra_desde == letra_hasta and destino is None):
             self.fichas[desde].set_posicion([letra_hasta, numero_hasta])
             self.fichas[hasta] = self.fichas[desde]
             del self.fichas[desde]
